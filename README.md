@@ -12,4 +12,4 @@ little library of js code for global usage
 | glightbox                | for initialize glightbox                      |
 | tippy                    | initialize tippy tooltip                      |
 
-//TODO transform urltoclipboar in stimulus
+//TODO: transform urltoclipboar in stimulus
