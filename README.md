@@ -1,5 +1,5 @@
-# basejs
-
+# Basejs
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cadot-eu_basejs&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cadot-eu_basejs)
 little library of js code for global usage
 
 | js file                  | description                                             |
