@@ -68,27 +68,27 @@ function init() {
         scene.add(cercueil);
     });
 
-    objLoader.load('/build/3D/circle.obj', function (objet) {
-        objet.traverse(function (child) {
-            if (child instanceof THREE.Mesh) {
-                child.material.map = texture;
-            }
-        });
-        circle = objet
-        scene.add(circle);
-    });
-    objLoader.load('/build/3D/photo.obj', function (objet) {
-        objet.traverse(function (child) {
-            if (child instanceof THREE.Mesh) {
-                child.material.map = texturep;
-            }
-        });
-        photo = objet
+    // objLoader.load('/build/3D/circle.obj', function (objet) {
+    //     objet.traverse(function (child) {
+    //         if (child instanceof THREE.Mesh) {
+    //             child.material.map = texture;
+    //         }
+    //     });
+    //     circle = objet
+    //     scene.add(circle);
+    // });
+    // objLoader.load('/build/3D/photo.obj', function (objet) {
+    //     objet.traverse(function (child) {
+    //         if (child instanceof THREE.Mesh) {
+    //             child.material.map = texturep;
+    //         }
+    //     });
+    //     photo = objet
 
-        //photo.position.addVectors(center, new THREE.Vector3(1, 1, 1).multiplyScalar(1));
+    //     //photo.position.addVectors(center, new THREE.Vector3(1, 1, 1).multiplyScalar(1));
 
-        scene.add(photo);
-    });
+    //     scene.add(photo);
+    // });
 
 
 
@@ -146,7 +146,6 @@ function onPointerMove(event) {
 
     MoveX = targetRotationOnPointerDownX + (pointerX - pointerXOnPointerDown);
     MoveY = targetRotationOnPointerDownY + (pointerY - pointerYOnPointerDown);
-    console.log(photo)
 }
 
 function onPointerUp() {
@@ -167,7 +166,6 @@ function animate() {
 }
 
 function render() {
-
     //camera.position.x += (mouseX * 3 - camera.position.x);
     //camera.position.y += (- mouseY - camera.position.y) * .05;
     //camera.position.x = Math.cos(targetRotation);
@@ -176,10 +174,8 @@ function render() {
     //camera.position.x = 60 * Math.tan(targetRotation * .01);
     //camera.position.y = Math.sin(targetRotation);
     camera.lookAt(cameraTarget);
-    if (cercueil && circle && photo) {
+    if (cercueil) {
         cercueil.rotation.y = MoveX * .01
-        circle.rotation.y = MoveX * .01
-        photo.rotation.y = MoveX * .01
         // camera.zoom = MoveY * .1
         // camera.updateProjectionMatrix();
     }
