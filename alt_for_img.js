@@ -8,6 +8,6 @@ document.querySelectorAll('img').forEach(el => {
         if (el.getAttribute('src')) source = el.getAttribute('src');
         if (el.getAttribute('data-bp')) source = el.getAttribute('data-bp');
         if (source != null)
-            el.setAttribute('alt', source.split('/').reverse()[0].split('.')[0].replace('-', ' ').replace('_', ' '))
+            el.setAttribute('alt', 'image:' + source.split('/').reverse()[0].replaceAll('-', ' ').split('_')[0])
     }
 });
