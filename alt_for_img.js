@@ -7,7 +7,16 @@ document.querySelectorAll('img').forEach(el => {
         let source = null;
         if (el.getAttribute('src')) source = el.getAttribute('src');
         if (el.getAttribute('data-bp')) source = el.getAttribute('data-bp');
-        if (source != null)
-            el.setAttribute('alt', 'image:' + source.split('/').reverse()[0].replaceAll('-', ' ').split('_')[0])
+        if (source != null) {
+            debut = 'image:' + source.split('/').reverse()[0]
+            //dans le cas des anciens codage avec ZY
+            if (debut.includes('ZY')) {
+                final = debut.replaceAll('ZYTIRETYZ', '-').replaceAll('ZYESPACEYZ', '-').split('.')[0]
+            }
+            else
+                final = debut.replaceAll('-', ' ').split('_')[0]
+            el.setAttribute('alt', final)
+
+        }
     }
 });
