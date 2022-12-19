@@ -5,7 +5,7 @@ little library of js code for global usage
 
 | js file                  | description                                             |
 | ------------------------ | ------------------------------------------------------- |
-| alt_for_img              | create a alt form image by the name                     |
+| datas_for_img              | create a alt form image by the name                     |
 | aos                      | initialize aos library                                  |
 | bootstrap-icons-add-aria | create a aria for bootstrap icon form the class of icon |
 | collection               | initialize symfony collection form a2lix                |
@@ -19,7 +19,7 @@ for french people
 
 | js file                  | description                                               |
 | ------------------------ | --------------------------------------------------------- |
-| alt_for_img              | créer un alt pour une ilmage à partir du nom              |
+| datas_for_img              | créer un alt pour une ilmage à partir du nom              |
 | aos                      | initialise aos librairie                                  |
 | bootstrap-icons-add-aria | créer un aria pour un icon bootstrap à partir de sa class |
 | collection               | ininitialise symfony collection form a2lix                |
