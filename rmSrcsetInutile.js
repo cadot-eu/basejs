@@ -6,9 +6,11 @@ images.forEach(function (img) {
     //on supprime les srcset dont la taille est supérieure à la largeur de la fenetre
     //on récupère le srcset et on le split pour avoir un tableau
     var srcset = img.getAttribute('srcset');
-    if (srcset == null && img.getAttribute('data-size') == null) return;
-    if (img.getAttribute('data-size').indexOf('%') == -1) return;
-    pourcentage = img.getAttribute('data-size').split('%')[0];
+    if (srcset == null) return;
+    pourcentage = 100;
+    if (img.getAttribute('data-size') != null)
+        if (img.getAttribute('data-size').indexOf('%') != -1) pourcentage = img.getAttribute('data-size').split('%')[0];
+
     srcset = srcset.split(',');
     //on boucle sur le tableau
     let i;
@@ -21,7 +23,6 @@ images.forEach(function (img) {
         if (size > width * (pourcentage / 100)) {
             break;
         }
-
     }
     //on coupe le tabeau à la position i+1
     srcset = srcset.slice(0, i + 1);
