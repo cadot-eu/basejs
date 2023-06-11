@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 let timerInterval
-function flash_message(type, title, html = false, toast = true, timer = 2000) {
+function flash_message(type, title, html = false, button = false, toast = true, timer = 2000) {
     Swal.fire({
         icon: type,
         title: title,
@@ -8,7 +8,7 @@ function flash_message(type, title, html = false, toast = true, timer = 2000) {
         timer: timer,
         timerProgressBar: true,
         toast: toast,
-
+        showConfirmButton: button,
 
         showClass: {
             popup: 'animate__animated animate__fadeInDown'
