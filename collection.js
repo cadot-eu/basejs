@@ -22,5 +22,29 @@ a2lix_lib.sfCollection.init({
             customFn: null,
             onAfterFn: null
         }
-    }
+    },
 })
+document.addEventListener('DOMContentLoaded', function () {
+    var ex_valeurs_fichiers = document.querySelectorAll('.ex_valeurs_fichiers');
+    ex_valeurs_fichiers.forEach(function (item) {
+        var champ = item.getAttribute('champ');
+        var fichier = item.value;
+        var input = document.querySelector('[id="' + champ + '"]');
+
+        var div = document.createElement('div');
+
+        //si le fichier est une image on ajoute une miniature
+        if (fichier.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+            div.classList.add('col-sm-2');
+            //dans le input on modifie sa classe col-sm-10 en col-sm-6
+            input.parentNode.classList.remove('col-sm-10');
+            input.parentNode.classList.add('col-sm-6');
+            div.innerHTML = '<img data-controller="base--bigpicture"  src="/' + fichier + '" style="max-width: 100px; max-height: 100px;" />';
+            input.parentNode.parentNode.append(div);
+        } else {
+            div.innerHTML = fichier;
+            input.parentNode.insertBefore(div, input.nextSibling);
+        }
+
+    });
+});
