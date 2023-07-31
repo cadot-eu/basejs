@@ -1,13 +1,18 @@
+// Sélectionner tous les éléments <i> dont la classe commence par 'bi-'
+var icons = document.querySelectorAll("i[class^='bi-']");
 
-$("i[class^='bi-']").each(function () {
+// Parcourir chaque élément sélectionné
+icons.forEach(function (icon) {
     let cs;
-    $(this).prop('classList').forEach(element => {
-        if (element.slice(0, 3) == 'bi-') {
+    // Parcourir les classes de l'élément courant
+    icon.classList.forEach(function (element) {
+        if (element.slice(0, 3) === 'bi-') {
             cs = element;
-            return false;
+            return false; // Quitter la boucle forEach dès qu'on trouve la classe commençant par 'bi-'
         }
     });
 
-    $(this).attr('role', 'img');
-    $(this).attr('aria-label', cs.slice(3).replace('-', ' '))
-})
+    // Définir les attributs 'role' et 'aria-label' pour l'élément courant
+    icon.setAttribute('role', 'img');
+    icon.setAttribute('aria-label', cs.slice(3).replace('-', ' '));
+});
