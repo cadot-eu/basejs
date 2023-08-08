@@ -56,7 +56,19 @@ document.addEventListener('DOMContentLoaded', function () {
             div.innerHTML = '<img data-controller="base--bigpicture"  src="/' + fichier + '" style="max-width: 100px; max-height: 100px;" />';
             // Append the div to the parent node of the input's parent node
             input.parentNode.parentNode.append(div);
-        } else {
+        }
+        else if (fichier.match(/\.(mp4)$/) != null) {
+            // Add 'col-sm-2' class to the div
+            div.classList.add('col-sm-2');
+            // Remove 'col-sm-10' class from the input's parent node and add 'col-sm-6' class
+            input.parentNode.classList.remove('col-sm-10');
+            input.parentNode.classList.add('col-sm-6');
+            // Set the div's inner HTML to display the video
+            div.innerHTML = '<video controls style="width: auto; max-height: 100px;" src="/' + fichier + '"></video>';
+            // Append the div to the parent node of the input's parent node
+            input.parentNode.parentNode.append(div);
+        }
+        else {
             // Set the div's inner HTML to display the file value
             div.innerHTML = fichier;
             // Insert the div after the input element
