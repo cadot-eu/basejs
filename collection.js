@@ -41,12 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
         var fichier = item.value;
         // Get the input element with the matching 'champ' attribute value
         var input = document.querySelector('[id="' + champ + '"]');
-
         // Create a new div element
         var div = document.createElement('div');
 
         // Check if the file is an image (jpeg, jpg, gif, png)
-        if (fichier.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+        if (fichier.match(/\.(jpeg|jpg|gif|png|webp)$/) != null) {
             // Add 'col-sm-2' class to the div
             div.classList.add('col-sm-2');
             // Remove 'col-sm-10' class from the input's parent node and add 'col-sm-6' class
