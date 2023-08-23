@@ -18,7 +18,7 @@ a2lix_lib.sfCollection.init({
         remove: {
             prototype:
                 '<button class="__class__" data-entry-action="remove">__label__</button>',
-            class: 'btn btn-danger btn-sm',
+            class: 'btn btn-danger btn-sm col-2 ms-auto',
             label: 'Surpprimer',
             customFn: null,
             onAfterFn: handleClick
@@ -101,8 +101,11 @@ function handleClick() {
                     //on ajoute une class alert de bootstrap
                     p.classList.add('alert', 'alert-warning');
                     p.id = id + "_alert";
-                    //on l'ajoute sous le bouton 
+                    //on l'ajoute avant le bouton 
                     bouton.parentNode.parentNode.appendChild(p);
+                    //on ajoute un <hr>
+                    var hr = document.createElement('hr');
+                    bouton.parentNode.parentNode.appendChild(hr);
                 }
 
             }
