@@ -19,7 +19,7 @@ a2lix_lib.sfCollection.init({
             prototype:
                 '<button class="__class__" data-entry-action="remove">__label__</button>',
             class: 'btn btn-danger btn-sm col-2 ms-auto',
-            label: 'Surpprimer',
+            label: 'Supprimer',
             customFn: null,
             onAfterFn: handleClick
         }
@@ -30,6 +30,10 @@ a2lix_lib.sfCollection.init({
  * si c'est une image on ajoute une miniature
  */
 document.addEventListener('DOMContentLoaded', function () {
+
+
+
+
     // Get all elements with class 'ex_valeurs_fichiers'
     var ex_valeurs_fichiers = document.querySelectorAll('.ex_valeurs_fichiers');
 
@@ -73,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Insert the div after the input element
             input.parentNode.insertBefore(div, input.nextSibling);
         }
+
     });
 });
 
@@ -83,6 +88,17 @@ function handleClick() {
     //on prend le row juste après ce div
     // Parcourir chaque div
     divs.forEach(function (div) {
+
+        // //on supprime les col-sm-2 pour nettoyer
+        // //on boucle sur les col-sm-2
+        // var col_sm_2 = div.querySelectorAll('.col-sm-2');
+        // col_sm_2.forEach(function (item) {
+        //     if (item.innerHTML == '' && (item.label == '' || item.label == undefined)) {
+        //         //on prend le div suivant
+        //         item.remove();
+
+        //     }
+        // })
         // Récupérer l'ID du div
         var id = div.getAttribute('id');
         var bouton = div.querySelector('button[data-entry-action="add"]')
