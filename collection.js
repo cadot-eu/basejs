@@ -30,6 +30,40 @@ a2lix_lib.sfCollection.init({
  * si c'est une image on ajoute une miniature
  */
 document.addEventListener('DOMContentLoaded', function () {
+    //on recherche data-prototype pour ranger par ordre
+    var divs = document.querySelectorAll('div[data-prototype]');
+    divs.forEach(function (div) {
+        //on recherche tous les div mais pas les enfants
+        let num = 0
+        let tabordre = []
+        div.querySelectorAll('div').forEach(function (sdiv) {
+            if (sdiv.parentNode === div) {
+                //on regarde si on a un champ ordre caché
+                let inputordre = document.querySelector('[id="' + div.id + '_' + num + '_ordre' + '"]')
+                if (inputordre) {
+                    //on récupère l'id
+                    let id = document.querySelector('[id="' + div.id + '_' + num + '_id' + '"]').value;
+                    //on créé 4 boutons pour modifier l'ordre
+                    let liens = ['top', 'up', 'down', 'bottom']
+                    let icons = ['bi-arrow-bar-up', 'bi-arrow-up', 'bi-arrow-down', 'bi bi-arrow-bar-down']
+                    let entity = div.id.split('_')[1].slice(0, -1)
+                    let btngroup = document.createElement('div')
+                    btngroup.classList.add('btn-group', 'btn-group-sm', 'col-auto')
+                    for (let index = 0; index < 4; index++) {
+                        let a = document.createElement('a')
+                        a.classList.add('btn')
+                        a.classList.add('btn-sm')
+                        a.href = '/admin/changeordre/' + entity + '/' + id + '/' + liens[index] + '?ordre=' + entity + '.ordre'
+                        a.innerHTML = '<i class="bi ' + icons[index] + '"></i>'
+                        btngroup.appendChild(a)
+                    }
+                    sdiv.appendChild(btngroup)
+                }
+                num++
+            }
+        })
+
+    })
 
 
 
