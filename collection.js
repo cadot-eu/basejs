@@ -29,15 +29,28 @@ a2lix_lib.sfCollection.init({
  * ajoute le nom du fichier après l'input
  * si c'est une image on ajoute une miniature
  */
-// document.addEventListener('DOMContentLoaded', function () {
-//     //on recherche data-prototype pour ranger par ordre
-//     var divs = document.querySelectorAll('div[data-prototype]');
-//     divs.forEach(function (div) {
-//         //on recherche tous les div mais pas les enfants
-//         let num = 0
-//         let tabordre = []
-//         div.querySelectorAll('div').forEach(function (sdiv) {
-//             if (sdiv.parentNode === div) {
+document.addEventListener('DOMContentLoaded', function () {
+    //on recherche data-prototype pour ranger par ordre
+    var divs = document.querySelectorAll('div[data-prototype]');
+    divs.forEach(function (div) {
+        let form = div.closest('form')
+        div.setAttribute('data-controller', 'base--drag')
+        div.setAttribute('data-base--drag-query-value', 'div.pourDragCollection')
+        div.setAttribute('data-base--drag-entity-value', div.id.split('_')[0])
+        div.setAttribute('data-base--drag-collection-value', div.id.split('_')[1])
+        div.setAttribute('data-base--drag-identity-value', form.getAttribute('data-identity'))
+        div.querySelectorAll('div').forEach(function (sdiv) {
+            if (sdiv.parentNode === div) {
+                let part = sdiv.querySelector('.col-sm-10').firstChild.id.split('_')
+                sdiv.classList.add('pourDragCollection')
+                sdiv.setAttribute('data-num', part[2])
+
+
+            }
+        }
+        )
+    })
+});
 //                 //on regarde si on a un champ ordre caché
 //                 let inputordre = document.querySelector('[id="' + div.id + '_' + num + '_ordre' + '"]')
 //                 if (inputordre) {
@@ -59,12 +72,9 @@ a2lix_lib.sfCollection.init({
 //                         btngroup.appendChild(a)
 //                     }
 //                     sdiv.appendChild(btngroup)
-//                 }
+//    }
 //                 num++
-//             }
-//         })
 
-//     })
 
 
 
