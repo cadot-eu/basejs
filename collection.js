@@ -36,16 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
         let form = div.closest('form')
         div.setAttribute('data-controller', 'base--drag')
         div.setAttribute('data-base--drag-query-value', 'div.pourDragCollection')
-        div.setAttribute('data-base--drag-entity-value', div.id.split('_')[0])
-        div.setAttribute('data-base--drag-collection-value', div.id.split('_')[1])
-        div.setAttribute('data-base--drag-identity-value', form.getAttribute('data-identity'))
+        div.setAttribute('data-base--drag-ajax-value', false)
         div.querySelectorAll('div').forEach(function (sdiv) {
             if (sdiv.parentNode === div) {
                 let part = sdiv.querySelector('.col-sm-10').firstChild.id.split('_')
                 sdiv.classList.add('pourDragCollection')
-                sdiv.setAttribute('data-num', part[2])
-
-
+                sdiv.setAttribute('data-id', part[2])
             }
         }
         )
